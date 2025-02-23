@@ -1,0 +1,6 @@
+.venv
+logs
+extractive-summarizer.ipynb
+__pycache__
+frontend
+api
