@@ -3,4 +3,9 @@ logs
 extractive-summarizer.ipynb
 __pycache__
 frontend
+<<<<<<< HEAD
 api
+=======
+api
+.DS_Store
+>>>>>>> 28745c1 (added .gitignore)
