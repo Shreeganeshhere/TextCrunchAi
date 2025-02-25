@@ -5,3 +5,4 @@ __pycache__
 frontend
 api
 .DS_Store
+min.ipynb
