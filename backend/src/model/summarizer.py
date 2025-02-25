@@ -67,6 +67,7 @@ In healthcare, AI is transforming diagnostics, enabling early disease detection 
 
 As AI continues to advance, ethical considerations become crucial. Balancing automation with human oversight will shape how we integrate AI responsibly into society. One thing is certain: AI is here to stay, and its possibilities are limitless."""
     
-summarizer = Summarizer()
-summary = summarizer.extractive_summarisation(text)
-print(summary)
+    summarizer = Summarizer()
+    summary = summarizer.extractive_summarisation(text)
+    print(summary)
+ 
