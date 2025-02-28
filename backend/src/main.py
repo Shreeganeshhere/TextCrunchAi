@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from model.summarizer import Summarizer
 
+
 app = FastAPI()
 
 class SummarizationText(BaseModel):

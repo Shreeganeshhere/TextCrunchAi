@@ -9,6 +9,7 @@ Log_file = os.path.join(log_dir, "app.log")
 # create logger instance
 logger = logging.getLogger("TextcrunchAi")
 logger.setLevel(logging.INFO)
+
 # remove any existing handlers
 if logger.hasHandlers():
     logger.handlers.clear()
