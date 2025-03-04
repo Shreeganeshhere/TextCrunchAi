@@ -6,3 +6,4 @@ frontend
 api
 .DS_Store
 min.ipynb
+/data
