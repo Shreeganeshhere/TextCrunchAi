@@ -1,0 +1,52 @@
+name: Auto-Update DVC dataset
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    update-dataset:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+
+            - name: set up python
+              uses: actions/setup-python@v3
+              with:
+                python-version: 3.8
+            
+            - name: 🔹 Install DVC
+              run: pip install dvc[dvc-s3]  # Change to your DVC remote type (e.g., dvc-gdrive, dvc-gcs)
+
+            - name: 🔹 Configure Git User
+              run: |
+                git config --global user.email "shreeganeshhere@gmail.com"
+                git config --global user.name "Shreeganeshhere"
+            
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v2
+              with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                aws-region: ap-south-1 
+
+            - name: 🔹 Pull Latest Data from DVC Remote
+              run: dvc pull
+
+            - name: 🔹 Check for Dataset Changes
+              run: |
+                if dvc status | grep "modified"; then
+                    echo "Dataset has changed. Updating..."
+                    dvc add data
+                    git add data.dvc .gitignore
+                    git commit -m "🔄 Auto-updated dataset via GitHub Actions"
+                    git push origin main
+                    dvc push
+                else
+                    echo "No dataset changes detected."
+                fi
+                
