@@ -2,3 +2,9 @@ sumy
 nltk
 pytest
 fastapi
+uvicorn
+datasets
+transformers
+torch
+dvc
+mlflow

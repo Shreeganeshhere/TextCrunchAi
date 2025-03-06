@@ -1,0 +1,7 @@
+[core]
+    remote = origin
+['remote "s3remote"']
+    url = s3://textcrunchai/textcrunchdata
+    endpointurl = https://s3.amazonaws.com
+['remote "origin"']
+    url = s3://textcrunchai/textcrunchdata
