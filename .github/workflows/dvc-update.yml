@@ -20,7 +20,7 @@ jobs:
                 python-version: 3.8
             
             - name: 🔹 Install DVC
-              run: pip install dvc[dvc-s3]  # Change to your DVC remote type (e.g., dvc-gdrive, dvc-gcs)
+              run: pip install dvc-s3  # Change to your DVC remote type (e.g., dvc-gdrive, dvc-gcs)
 
             - name: 🔹 Configure Git User
               run: |
