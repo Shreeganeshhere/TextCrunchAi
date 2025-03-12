@@ -24,9 +24,14 @@ jobs:
 
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$PWD/backend/src" >> $GITHUB_ENV
-        
+
       - name: Run Backend tests
-        run: pytest tests/ --cov=src --cov-report=xml
+        run: pytest backend/src/tests/ --cov=backend/src --cov-report=xml
+
+        name: Upload Coverage Report
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
