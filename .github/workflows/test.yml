@@ -22,8 +22,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r backend/requirements.txt
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PWD/backend/src" >> $GITHUB_ENV
+        
       - name: Run Backend tests
-        run: pytest tests/ --cov=app
+        run: pytest tests/ --cov=src --cov-report=xml
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
