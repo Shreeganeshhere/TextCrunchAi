@@ -1,12 +1,12 @@
 import pytest
-from src.model.summarizer import Summarizer
-from src.main import app
+from backend.src.model.summarizer import Summarizer
+from backend.src.main import app
 
 test_sample = """Artificial intelligence is transforming industries by enabling automation and decision-making based on data-driven insights. AI models analyze vast amounts of information quickly and efficiently, making them valuable for various applications such as healthcare, finance, and marketing."""
 
 def test_extractive_summarisation():
     """Test for extractive summarizer"""
-    summarizer = Summarizer()
+    summarizer = Summarizer(    )
     summary = summarizer.extractive_summarisation(test_sample)
     assert summary not in [None, ""]
     assert "AI" in summary

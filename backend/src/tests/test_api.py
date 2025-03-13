@@ -1,5 +1,5 @@
 import pytest
-from src.main import app
+from backend.src.main import app
 from fastapi.testclient import TestClient
 
 client = TestClient(app)
@@ -8,7 +8,7 @@ def test_home():
     """Test for home route"""
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Hello"}
+    assert response.json() == {"message": "Welcome to TextCrunchAI"}
 
 
 def test_summarize_api():

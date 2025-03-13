@@ -8,3 +8,5 @@ transformers
 torch
 dvc
 mlflow
+pytest-cov 
+httpx

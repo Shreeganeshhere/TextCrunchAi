@@ -1,4 +1,4 @@
-from src.main import app
+from backend.src.main import app
 import pytest
 from fastapi.testclient import TestClient
 import time
