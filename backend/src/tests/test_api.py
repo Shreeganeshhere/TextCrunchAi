@@ -25,6 +25,7 @@ def test_upload_api():
     assert response.status_code == 200
     assert "message" in response.json()
 
+
 def test_invalid_request():
     """Test for invalid request"""
     response = client.post("/summarize", json={"text": ""})
